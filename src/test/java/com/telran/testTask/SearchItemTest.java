@@ -46,11 +46,12 @@ public class SearchItemTest {
     }
 
     @Test
-    public void searchItemTest() {
+    public void searchItemTest() throws InterruptedException {
         wd.findElement(By.cssSelector("[data-id='market']")).click();
         switchToNextTab(1);
+        wd.findElement(By.cssSelector("[data-id='button-all']")).click();
         wd.findElement(By.xpath("//a[contains(.,'Экспресс')]")).click();
-        wd.findElement(By.xpath("//a[contains(.,'Электроника')]")).click();
+        wd.findElement(By.xpath("//*[@data-zone-name='snippet']//a[contains(.,'Электроника')]")).click();
         wd.findElement(By.xpath("//a[contains(.,'Смартфоны и аксессуары')]")).click();
     }
 
