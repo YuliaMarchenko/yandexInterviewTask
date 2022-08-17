@@ -21,6 +21,9 @@ dependencies {
     implementation 'ch.qos.logback:logback-classic:1.2.11'
 }
 
-test {
+task testy(type:Test) {
     useTestNG()
+    if (project.hasProperty('browser')){
+        systemProperty 'browser',"${browser}"
+    }
 }
